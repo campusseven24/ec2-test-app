@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: ec2-test-app
+
+  thymeleaf:
+    cache: false        # 개발 시 HTML 수정 후 즉시 반영 (운영: true)
+    prefix: classpath:/templates/     # 템플릿 파일 위치
+    suffix: .html                     # 템플릿 확장자 자동 추가
+    encoding: UTF-8                   # 한글 깨짐 방지
+
+  jackson:    # JSON 변환 라이브러리 타임존 설정
+    time-zone: Asia/Seoul
+
+logging:
+  level:
+    root: INFO          #전체 애플리케이션 로그 레벨 (ERROR, WARN, INFO, DEBUG, TRACE)
+    com.example.ec2testapp: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+server:
+  port: 8080
